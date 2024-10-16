@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-image: url("fino.jpeg");/* Light gray background color */
+    background-size: contain;
+
+
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 70px;
+    font-style: oblique;
+    color: darkblue;
+}
+
+label {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+#selectedImageDisplay,
+#imageDisplay {
+    margin-top: 20px;
+    padding: 10px;
+    background-image: url("back.jpeg");
+    background-size: contain;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#selectedImageDisplay img,
+#groundTruthImage,
+#graphImage1,
+#graphImage2 {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #27af79;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#groundTruthImageDisplay {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#groundTruthImageDisplay h3,
+#imageDisplay h3 {
+    text-align: center;
+    color: #333;
+}
+
+.graphContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.graphContainer img {
+    width: 45%; /* Adjust width to control graph size */
+}

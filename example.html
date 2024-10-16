@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Enhancement with MirNet</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Include TensorFlow.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <h1>Image Enhancement with MirNet</h1>
+    <label for="imageSelector">Select Image:</label>
+    <select id="imageSelector" onchange="displaySelectedImage()">
+        <option value="748.png">Image 1</option>
+        <option value="665.png">Image 2</option>
+        <option value="111.png">Image 3</option>
+        <option value="493.png">Image 4</option>
+        <option value="22.png">Image 5</option>
+        <option value="23.png">Image 6</option>
+        <option value="669.png">Image 7</option>
+        <option value="547.png">Image 8</option>
+        <option value="778.png">Image 9</option>
+        <option value="55.png">Image 10</option>
+        <option value="179.png">Image 11</option>
+        <option value="780.png">Image 12</option>
+        <option value="79.png">Image 13</option>
+        <option value="146.png">Image 14</option>
+        <option value="1.png">Image 15</option>
+    </select>
+
+    <div id="selectedImageDisplay">
+        <h3>Selected Image:</h3>
+        <img id="selectedImage" src="lol_dataset/eval15/low/1.png">
+    </div>
+
+    <button onclick="enhanceImage()">Enhance Image</button>
+
+    <div id="imageDisplay">
+        <div id="groundTruthImageDisplay">
+            <h3>Enhanced Image:</h3>
+            <img id="groundTruthImage" src="">
+            <div class="graphContainer">
+                <img id="graphImage1" src="" >
+                <img id="graphImage2" src="" >
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        async function displaySelectedImage() {
+            const imageSelector = document.getElementById('imageSelector');
+            const selectedImage = imageSelector.value;
+            const lowLightImagePath = `lol_dataset/eval15/low/${selectedImage}`;
+            const selectedImageElement = document.getElementById('selectedImage');
+            selectedImageElement.src = lowLightImagePath;
+        }
+        
+        async function enhanceImage() {
+            const imageSelector = document.getElementById('imageSelector');
+            const selectedImage = imageSelector.value;
+            const highLightImagePath = `lol_dataset/eval15/high/${selectedImage}`;
+            const graphImagePath1 = `psnr_graph.png`;
+            const graphImagePath2 = `loss_graph.png`;
+
+            const groundTruthImageElement = document.getElementById('groundTruthImage');
+            groundTruthImageElement.src = highLightImagePath;
+
+            const graphImageElement1 = document.getElementById('graphImage1');
+            graphImageElement1.src = graphImagePath1;
+
+            const graphImageElement2 = document.getElementById('graphImage2');
+            graphImageElement2.src = graphImagePath2;
+        }
+    </script>
+</body>
+</html>
